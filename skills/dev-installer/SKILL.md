@@ -29,20 +29,19 @@ description: 当用户请求"扫描技能"、"生成技能映射"、"安装 dev-
 2. 对每个包含 `SKILL.md` 的目录，提取：
    - `name`（frontmatter）
    - `description`（frontmatter）
-   - 核心内容摘要（前 50 行）
-3. 按以下关键词规则初步匹配到阶段：
+3. 按以下关键词规则初步匹配到阶段（匹配技能目录名 + description，不扫正文）：
 
 | 阶段 | 匹配关键词 |
 |------|-----------|
-| context | 检索、搜索、分析、理解、explain、trace、context |
-| planing | 方案、计划、plan、设计、design、brainstorm、架构、architect |
-| coding | 编码、代码、规范、standard、pattern、implement、TDD、安全 |
-| scope-check | diff、变更、范围、scope |
-| testing | 测试、test、E2E、playwright、vitest、coverage |
-| fixing | 调试、debug、修复、fix、排查 |
-| review | 评审、review、安全、security、检查 |
-| output | PR、提交、commit、分支、branch、合并、merge |
-| knowledge | 记忆、memory、归档、evolve、知识 |
+| context | 检索、搜索、代码分析、上下文 |
+| planing | 方案、计划、设计系统、brainstorm、架构、architect（全词）、design（全词） |
+| coding | 编码、代码风格、代码规范、standard（全词）、implement（全词）、TDD |
+| scope-check | diff（全词）、变更范围、scope（全词） |
+| testing | 测试、E2E、playwright、vitest、coverage（全词） |
+| fixing | 调试、debug、修复、排查、troubleshoot |
+| review | 评审、review（全词）、security、漏洞、audit（全词） |
+| output | PR、提交规范、commit（全词）、分支管理、合并、merge（全词） |
+| knowledge | 记忆、memory（全词）、归档、evolve（全词）、知识管理 |
 
 ### Step 3: 生成映射
 

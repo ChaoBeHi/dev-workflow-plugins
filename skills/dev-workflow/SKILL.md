@@ -162,3 +162,7 @@ digraph dev_workflow {
 | "这个太简单，不用走流程" | 简单任务是最容易跳步骤、出低级错误的场景。 |
 
 ---
+
+## 参考资源
+
+- **`skills/references/troubleshooting.md`** — 跨阶段故障恢复指南（context 阻塞、架构冲突、scope-check 差异、fixing 熔断、planing 回退）
