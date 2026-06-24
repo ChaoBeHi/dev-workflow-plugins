@@ -11,18 +11,7 @@ git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git ~/dev-workflow-plugin
 ~/dev-workflow-plugins/install.sh
 ```
 
-运行后选择目标平台（可多选）：
-```
-选择安装目标平台（可多选，空格分隔）：
-  1. Claude Code  (~/.claude/)
-  2. Hermes       (~/.hermes/)
-
-输入序号 [1 2 / 1]:
-```
-
-- 输入 `1` — 仅安装到 Claude Code
-- 输入 `2` — 仅安装到 Hermes
-- 输入 `1 2` — 同时安装到两个平台
+支持安装平台：`Claude Code` `Hermes`
 
 ### Windows (PowerShell)
 
@@ -31,7 +20,7 @@ git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git $HOME\dev-workflow-pl
 $HOME\dev-workflow-plugins\install.ps1
 ```
 
-同样支持多平台选择。
+同样支持双平台选择和 TUI 交互。
 
 ### Windows (CMD)
 
