@@ -22,7 +22,7 @@
 ## 安装
 
 ```bash
-git clone git@github.com:<org>/dev-workflow-plugins.git ~/dev-workflow-plugins
+git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git ~/dev-workflow-plugins
 cd ~/dev-workflow-plugins
 ./install.sh
 ```
