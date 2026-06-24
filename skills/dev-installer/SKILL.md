@@ -1,5 +1,5 @@
 ---
-name: dw-installer
+name: dev-installer
 description: dev-workflow 插件安装器：扫描本地 ~/.claude/skills/ 目录，分析每个 skill 的描述与内容，自动匹配到工作流阶段，生成 .workflow/mappings.json 映射文件。用户可选择是否执行扫描。
 ---
 

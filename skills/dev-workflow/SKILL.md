@@ -110,18 +110,18 @@ digraph dev_workflow {
 | 阶段 | 目标 | 插件 | 🚨Checkpoint |
 |------|------|------|-------------|
 | 1/11 input | 需求理解与对齐 | — | AI 复述需求，等待人类确认 |
-| 2/11 context | 代码库检索与可行性校验 | `dw-planing` | 有阻塞点→报告人类；无→自动进入 planing |
-| 3/11 planing | 方案设计与用例编写 | `dw-planing` | 方案评审 + 用例评审，两次人类确认 |
-| 4/11 coding | 按方案编码，不扩展范围 | `dw-implement` | — |
-| 5/11 scope-check | 变更范围一致性校验 | `dw-implement` | 差异为 0→自动进入 testing；有差异→报告人类 |
-| 6/11 testing | 执行测试用例，产出报告 | `dw-quality` | — |
-| 7/11 fixing | 缺陷分类与修复 | `dw-quality` | 非轻量修复→人类评审 |
-| 8/11 retest | 回归验证，循环熔断 | `dw-quality` | fixing 循环 >3 轮 或 planing 回退 >1 次→暂停 |
-| 9/11 review | 设计/逻辑/安全三维审查 | `dw-delivery` | 严重问题→报告人类决策 |
-| 10/11 output | 代码落地、PR、最终报告 | `dw-delivery` | CI 通过后→人类确认合并 |
-| 11/11 knowledge | ADR 归档与记忆更新 | `dw-delivery` | — |
+| 2/11 context | 代码库检索与可行性校验 | `dev-planing` | 有阻塞点→报告人类；无→自动进入 planing |
+| 3/11 planing | 方案设计与用例编写 | `dev-planing` | 方案评审 + 用例评审，两次人类确认 |
+| 4/11 coding | 按方案编码，不扩展范围 | `dev-implement` | — |
+| 5/11 scope-check | 变更范围一致性校验 | `dev-implement` | 差异为 0→自动进入 testing；有差异→报告人类 |
+| 6/11 testing | 执行测试用例，产出报告 | `dev-quality` | — |
+| 7/11 fixing | 缺陷分类与修复 | `dev-quality` | 非轻量修复→人类评审 |
+| 8/11 retest | 回归验证，循环熔断 | `dev-quality` | fixing 循环 >3 轮 或 planing 回退 >1 次→暂停 |
+| 9/11 review | 设计/逻辑/安全三维审查 | `dev-delivery` | 严重问题→报告人类决策 |
+| 10/11 output | 代码落地、PR、最终报告 | `dev-delivery` | CI 通过后→人类确认合并 |
+| 11/11 knowledge | ADR 归档与记忆更新 | `dev-delivery` | — |
 
-> 可用 `dw-installer` 扫描本地 skill 目录，生成阶段→技能映射文件（`.workflow/mappings.json`），辅助 AI 在阶段内选择最合适的执行技能。
+> 可用 `dev-installer` 扫描本地 skill 目录，生成阶段→技能映射文件（`.workflow/mappings.json`），辅助 AI 在阶段内选择最合适的执行技能。
 
 ---
 

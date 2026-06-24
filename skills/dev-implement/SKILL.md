@@ -1,5 +1,5 @@
 ---
-name: dw-implement
+name: dev-implement
 description: 开发工作流实现插件：涵盖 coding（研发编码）与 scope-check（范围校验），提供编码规范优先级、范围差异检查方法和行为约束。
 ---
 

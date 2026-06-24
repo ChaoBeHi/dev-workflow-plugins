@@ -1,5 +1,5 @@
 ---
-name: dw-planing
+name: dev-planing
 description: 开发工作流规划插件：涵盖 context（上下文装载）与 planing（方案规划），提供方案文档模板、测试用例设计规范和审批检查点。
 ---
 

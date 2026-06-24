@@ -6,22 +6,22 @@ REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 SKILLS=(
     dev-workflow
-    dw-planing
-    dw-implement
-    dw-quality
-    dw-delivery
-    dw-installer
+    dev-planing
+    dev-implement
+    dev-quality
+    dev-delivery
+    dev-installer
 )
 
 echo "dev-workflow-plugins 安装程序"
-echo "目标目录: ${SKILLS_DIR}"
+echo "目标: ${SKILLS_DIR}"
 echo ""
 
 installed=0
 skipped=0
 
 for skill in "${SKILLS[@]}"; do
-    source="${REPO_DIR}/${skill}"
+    source="${REPO_DIR}/skills/${skill}"
     target="${SKILLS_DIR}/${skill}"
 
     if [ ! -d "$source" ]; then
@@ -42,4 +42,10 @@ done
 echo ""
 echo "安装完成: ${installed} 个新装, ${skipped} 个跳过"
 echo ""
-echo "提示: 在 Claude Code 对话中输入 /dw-installer 可扫描本地技能生成映射文件"
+echo "可调用:"
+echo "  /dev-workflow      核心编排器"
+echo "  /dev-planing       规划插件"
+echo "  /dev-implement     实现插件"
+echo "  /dev-quality       质量插件"
+echo "  /dev-delivery      交付插件"
+echo "  /dev-installer     安装器 (扫描本地技能生成映射)"

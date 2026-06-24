@@ -1,5 +1,5 @@
 ---
-name: dw-quality
+name: dev-quality
 description: 开发工作流质量插件：涵盖 testing（测试验证）、fixing（缺陷修复）与 retest（回归测试），提供缺陷分类逻辑、循环熔断策略和测试报告模板。
 ---
 

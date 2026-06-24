@@ -1,5 +1,5 @@
 ---
-name: dw-delivery
+name: dev-delivery
 description: 开发工作流交付插件：涵盖 review（代码评审）、output（落地产出）与 knowledge（知识沉淀），提供三维审查框架、最终报告模板和 ADR 归档规范。
 ---
 
