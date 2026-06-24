@@ -1,6 +1,6 @@
 ---
 name: dev-workflow
-description: 人机协作开发工作流：涵盖 input→context→planing→coding→scope-check→testing→fixing⇄retest→review→output→knowledge 十一阶段，明确人类与 AI 的职责边界、产物目录规范和操作安全底线。
+description: 当用户请求"开发新功能"、"修复 bug"、"重构代码"或启动非平凡开发任务时，应使用此技能。提供 11 阶段人机协作工作流：input→context→planing→coding→scope-check→testing→fixing⇄retest→review→output→knowledge。
 ---
 
 # 人机协作开发工作流
