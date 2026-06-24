@@ -4,10 +4,28 @@
 
 ## 安装
 
+### Linux / macOS
+
 ```bash
 git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git ~/dev-workflow-plugins
 ~/dev-workflow-plugins/install.sh
 ```
+
+### Windows (PowerShell)
+
+```powershell
+git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git $HOME\dev-workflow-plugins
+$HOME\dev-workflow-plugins\install.ps1
+```
+
+### Windows (CMD)
+
+```cmd
+git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git %USERPROFILE%\dev-workflow-plugins
+powershell -File %USERPROFILE%\dev-workflow-plugins\install.ps1
+```
+
+> Windows 建议开启开发者模式（设置 → 开发者选项）以启用 symlink；否则自动退化为文件复制。
 
 重启 Claude Code 即可使用。
 
@@ -45,7 +63,12 @@ git clone git@github.com:ChaoBeHi/dev-workflow-plugins.git ~/dev-workflow-plugin
 cd ~/dev-workflow-plugins && git pull
 ```
 
-symlink 自动指向新版本，无需重新安装。
+- **symlink 用户**（Linux/macOS/Windows 开发者模式）：`git pull` 后自动生效，无需额外操作。
+- **复制模式用户**（Windows 非开发者模式）：`git pull` 后需重新运行安装脚本以同步文件：
+
+  ```powershell
+  $HOME\dev-workflow-plugins\install.ps1
+  ```
 
 ## 目录结构
 
@@ -60,8 +83,9 @@ dev-workflow-plugins/
 │   ├── dev-quality/SKILL.md
 │   ├── dev-delivery/SKILL.md
 │   └── dev-installer/SKILL.md
-├── README.md
-└── install.sh
+├── install.sh     (Linux/macOS)
+├── install.ps1    (Windows PowerShell)
+└── README.md
 ```
 
 ## 协议
