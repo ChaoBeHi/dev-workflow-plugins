@@ -31,13 +31,34 @@ powershell -File %USERPROFILE%\dev-workflow-plugins\install.ps1
 
 ## 使用
 
+### 技能（自然语言触发）
+
+对 Claude Code 描述需求即可自动匹配对应技能：
+
 ```
-/dev-workflow       核心编排器
-/dev-planing         规划插件
-/dev-implement       实现插件
-/dev-quality         质量插件
-/dev-delivery        交付插件
-/dev-installer       安装器 (扫描本地技能生成映射)
+"帮我开发一个用户登录功能"   → 触发 dev-workflow，启动完整 11 阶段流程
+"帮我设计一下数据库方案"     → 触发 dev-planing
+"这段代码帮我跑下测试"       → 触发 dev-quality
+```
+
+### 命令（显式调用）
+
+`/dev-workflow` 支持结构化参数，精确控制工作流：
+
+```
+/dev-workflow start <name>     从 input 阶段启动完整流程
+/dev-workflow jump <phase>     跳转到指定阶段，执行后停止
+/dev-workflow resume           恢复上次中断的流程
+/dev-workflow status           查看 .workflow/ 产出进度
+```
+
+`<phase>` 可选值：`input` `context` `planing` `coding` `scope-check` `testing` `fixing` `retest` `review` `output` `knowledge`
+
+示例：
+```
+/dev-workflow start 用户注销    # 启动完整开发流程
+/dev-workflow jump testing       # 仅执行 testing 阶段，完成后停止
+/dev-workflow status             # 查看当前进度
 ```
 
 ## 插件清单
@@ -76,13 +97,16 @@ cd ~/dev-workflow-plugins && git pull
 dev-workflow-plugins/
 ├── .claude-plugin/
 │   └── plugin.json
+├── commands/
+│   └── dev-workflow.md          # /dev-workflow start|jump|resume|status
 ├── skills/
-│   ├── dev-workflow/SKILL.md
-│   ├── dev-planing/SKILL.md
-│   ├── dev-implement/SKILL.md
-│   ├── dev-quality/SKILL.md
-│   ├── dev-delivery/SKILL.md
-│   └── dev-installer/SKILL.md
+│   ├── dev-workflow/SKILL.md    # 编排器（自然语言触发）
+│   ├── dev-planing/SKILL.md     # 阶段 1-3: input→context→planing
+│   ├── dev-implement/SKILL.md   # 阶段 4-5: coding→scope-check
+│   ├── dev-quality/SKILL.md     # 阶段 6-8: testing→fixing→retest
+│   ├── dev-delivery/SKILL.md    # 阶段 9-11: review→output→knowledge
+│   ├── dev-installer/SKILL.md   # 技能扫描映射
+│   └── references/              # 全局故障恢复指南
 ├── install.sh     (Linux/macOS)
 ├── install.ps1    (Windows PowerShell)
 └── README.md

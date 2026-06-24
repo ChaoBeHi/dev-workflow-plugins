@@ -2,6 +2,7 @@
 set -e
 
 SKILLS_DIR="${HOME}/.claude/skills"
+COMMANDS_DIR="${HOME}/.claude/commands"
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 SKILLS=(
@@ -13,9 +14,15 @@ SKILLS=(
     dev-installer
 )
 
+COMMANDS=(
+    dev-workflow
+)
+
 echo "dev-workflow-plugins 安装程序"
 echo "目标: ${SKILLS_DIR}"
 echo ""
+
+# ── 安装技能 ──────────────────────────────────────────────────────────
 
 installed=0
 skipped=0
@@ -39,16 +46,46 @@ for skill in "${SKILLS[@]}"; do
     fi
 done
 
+# ── 安装命令 ──────────────────────────────────────────────────────────
+
+cmd_installed=0
+cmd_skipped=0
+
+for cmd in "${COMMANDS[@]}"; do
+    source="${REPO_DIR}/commands/${cmd}.md"
+    target="${COMMANDS_DIR}/${cmd}.md"
+
+    if [ ! -f "$source" ]; then
+        echo "[FAIL] 源文件不存在: ${source}"
+        continue
+    fi
+
+    if [ -e "$target" ]; then
+        echo "[SKIP] /${cmd} 命令 — 已存在"
+        ((cmd_skipped++)) || true
+    else
+        ln -s "$source" "$target"
+        echo "[ OK ] /${cmd} → ${target}"
+        ((cmd_installed++)) || true
+    fi
+done
+
 echo ""
-echo "安装完成: ${installed} 个新装, ${skipped} 个跳过"
+echo "安装完成: ${installed} 个技能, ${cmd_installed} 个命令 | 跳过: ${skipped} 个技能, ${cmd_skipped} 个命令"
 echo ""
-echo "可调用:"
+echo "技能:"
 echo "  /dev-workflow      核心编排器"
 echo "  /dev-planing       规划插件"
 echo "  /dev-implement     实现插件"
 echo "  /dev-quality       质量插件"
 echo "  /dev-delivery      交付插件"
 echo "  /dev-installer     安装器 (扫描本地技能生成映射)"
+echo ""
+echo "命令:"
+echo "  /dev-workflow start <name>   启动完整工作流"
+echo "  /dev-workflow jump <phase>   跳转特定阶段"
+echo "  /dev-workflow resume         恢复中断的流程"
+echo "  /dev-workflow status         查看当前进度"
 
 # ── 扫描全局技能库生成阶段映射 ──────────────────────────────────────────
 
