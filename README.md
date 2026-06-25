@@ -60,7 +60,7 @@ powershell -File %USERPROFILE%\dev-workflow-plugins\install.ps1
 
 示例：
 ```
-/dev-workflow start 用户注销    # 启动完整开发流程
+/dev-workflow start 用户注销      # 启动完整开发流程
 /dev-workflow jump testing       # 仅执行 testing 阶段，完成后停止
 /dev-workflow status             # 查看当前进度
 ```

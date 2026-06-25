@@ -33,6 +33,8 @@ description: 当用户请求"开发新功能"、"修复 bug"、"重构代码"或
 
 ```
 .workflow/
+  prd/                      # PRD 需求文档（input 阶段产出）
+    YYYY-MM-DD-<topic>-prd.md
   plans/                    # 方案文档
     YYYY-MM-DD-<topic>-plan.md
   tests/                    # 测试用例与测试报告
